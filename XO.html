@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1504.84">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 10.8px Courier; color: #0c0c0c; -webkit-text-stroke: #0c0c0c; background-color: #ffffff}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 10.8px Courier; color: #0c0c0c; -webkit-text-stroke: #0c0c0c; background-color: #ffffff; min-height: 13.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 10.8px Monaco; color: #0c0c0c; -webkit-text-stroke: #0c0c0c; background-color: #ffffff}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 10.8px Monaco; font-kerning: none}
+    span.s3 {font: 10.8px Courier; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">print("*" * 10, " </span><span class="s2">Игра</span><span class="s1"> </span><span class="s2">Крестики</span><span class="s1">-</span><span class="s2">нолики</span><span class="s1"> </span><span class="s2">для</span><span class="s1"> </span><span class="s2">двух</span><span class="s1"> </span><span class="s2">игроков</span><span class="s1"> ", "*" * 10)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">board = list(range(1,10))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">def draw_board(board):</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>print("-" * 13)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>for i in range(3):</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>print("|", board[0+i*3], "|", board[1+i*3], "|", board[2+i*3], "|")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>print("-" * 13)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">def take_input(player_token):</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>valid = False</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>while not valid:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>player_answer = input("</span><span class="s2">Куда</span><span class="s1"> </span><span class="s2">поставим</span><span class="s1"> " + player_token+"? ")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>try:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">         </span>player_answer = int(player_answer)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>except:</span></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">         </span>print("</span><span class="s1">Некорректный</span><span class="s3"> </span><span class="s1">ввод</span><span class="s3">. </span><span class="s1">Вы</span><span class="s3"> </span><span class="s1">уверены</span><span class="s3">, </span><span class="s1">что</span><span class="s3"> </span><span class="s1">ввели</span><span class="s3"> </span><span class="s1">число</span><span class="s3">?")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">         </span>continue</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if player_answer &gt;= 1 and player_answer &lt;= 9:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">         </span>if(str(board[player_answer-1]) not in "XO"):</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>board[player_answer-1] = player_token</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>valid = True</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">         </span>else:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>print("</span><span class="s2">Эта</span><span class="s1"> </span><span class="s2">клетка</span><span class="s1"> </span><span class="s2">уже</span><span class="s1"> </span><span class="s2">занята</span><span class="s1">!")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>else:</span></p>
+<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span>print("</span><span class="s1">Некорректный</span><span class="s3"> </span><span class="s1">ввод</span><span class="s3">. </span><span class="s1">Введите</span><span class="s3"> </span><span class="s1">число</span><span class="s3"> </span><span class="s1">от</span><span class="s3"> 1 </span><span class="s1">до</span><span class="s3"> 9.")</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">def check_win(board):</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>win_coord = ((0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6))</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>for each in win_coord:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">       </span>if board[each[0]] == board[each[1]] == board[each[2]]:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>return board[each[0]]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>return False</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">def main(board):</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>counter = 0</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>win = False</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>while not win:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>draw_board(board)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if counter % 2 == 0:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">           </span>take_input("X")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">           </span>take_input("O")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>counter += 1</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if counter &gt; 4:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">           </span>tmp = check_win(board)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">           </span>if tmp:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>print(tmp, "</span><span class="s2">выиграл</span><span class="s1">!")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>win = True</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>break</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if counter == 9:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>print("</span><span class="s2">Ничья</span><span class="s1">!")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>break</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>draw_board(board)</span></p>
+<p class="p1"><span class="s1">main(board)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">input("</span><span class="s2">Нажмите</span><span class="s1"> Enter </span><span class="s2">для</span><span class="s1"> </span><span class="s2">выхода</span><span class="s1">!")</span></p>
+</body>
+</html>
