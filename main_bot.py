@@ -1,5 +1,5 @@
 import telebot
-from api import APIException, Convertor
+from extensions import APIException, Convertor
 from coin import *
 import traceback
 
